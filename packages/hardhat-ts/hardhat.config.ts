@@ -109,6 +109,13 @@ const config: HardhatUserConfig = {
         mnemonic: getMnemonic(),
       },
     },
+    bscTestnet: {
+      url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+      gasPrice: 1000000000,
+      accounts: {
+        mnemonic: getMnemonic(),
+      },
+    },
     iotexMainnet: {
       url: 'https://babel-api.mainnet.iotex.io',
       accounts: {
@@ -168,7 +175,8 @@ const config: HardhatUserConfig = {
     deployments: './generated/deployments',
   },
   typechain: {
-    outDir: '../vite-app-ts/src/generated/contract-types',
+    outDir: '../nzt-web/src/generated/contract-types',
+    // outDir: 'typechain',
   },
 };
 export default config;

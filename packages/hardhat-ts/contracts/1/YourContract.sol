@@ -32,4 +32,8 @@ contract YourContract {
     console.log(msg.sender, 'set purpose to', purpose);
     emit SetPurpose(msg.sender, purpose);
   }
+
+  function setPurpose2(string memory newPurpose) public payable {
+    setPurpose(newPurpose);
+  }
 }

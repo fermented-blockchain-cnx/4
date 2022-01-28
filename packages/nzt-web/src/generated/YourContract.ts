@@ -19,21 +19,15 @@ import { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
 export interface YourContractInterface extends utils.Interface {
   contractName: "YourContract";
   functions: {
-    "getPurpose()": FunctionFragment;
     "purpose()": FunctionFragment;
     "setPurpose(string)": FunctionFragment;
     "setPurpose2(string)": FunctionFragment;
   };
 
-  encodeFunctionData(
-    functionFragment: "getPurpose",
-    values?: undefined
-  ): string;
   encodeFunctionData(functionFragment: "purpose", values?: undefined): string;
   encodeFunctionData(functionFragment: "setPurpose", values: [string]): string;
   encodeFunctionData(functionFragment: "setPurpose2", values: [string]): string;
 
-  decodeFunctionResult(functionFragment: "getPurpose", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "purpose", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "setPurpose", data: BytesLike): Result;
   decodeFunctionResult(
@@ -83,8 +77,6 @@ export interface YourContract extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    getPurpose(overrides?: CallOverrides): Promise<[string]>;
-
     purpose(overrides?: CallOverrides): Promise<[string]>;
 
     setPurpose(
@@ -97,8 +89,6 @@ export interface YourContract extends BaseContract {
       overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
   };
-
-  getPurpose(overrides?: CallOverrides): Promise<string>;
 
   purpose(overrides?: CallOverrides): Promise<string>;
 
@@ -113,8 +103,6 @@ export interface YourContract extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    getPurpose(overrides?: CallOverrides): Promise<string>;
-
     purpose(overrides?: CallOverrides): Promise<string>;
 
     setPurpose(newPurpose: string, overrides?: CallOverrides): Promise<void>;
@@ -131,8 +119,6 @@ export interface YourContract extends BaseContract {
   };
 
   estimateGas: {
-    getPurpose(overrides?: CallOverrides): Promise<BigNumber>;
-
     purpose(overrides?: CallOverrides): Promise<BigNumber>;
 
     setPurpose(
@@ -147,8 +133,6 @@ export interface YourContract extends BaseContract {
   };
 
   populateTransaction: {
-    getPurpose(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     purpose(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     setPurpose(

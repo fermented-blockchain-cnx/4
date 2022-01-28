@@ -12,6 +12,7 @@ import { useStore } from '../store'
 import { MyOracle__factory } from '../generated/factories/MyOracle__factory'
 import { YourContract__factory } from '../generated/factories/YourContract__factory'
 import { YourContract } from 'generated/YourContract'
+import { ContractFactory } from 'ethers'
 
 
 
@@ -24,7 +25,7 @@ export const Home = observer(() => {
   const { lang, god } = useStore()
   const { library, chainId } = useWeb3React()
 
-  const addr = '0x03a9Ca22532c15F6D1A52f7D00fC85D956bd45E9'
+  const addr = '0x767fF00098f128c4660ECB7edA5d251Bf19211E8'
   const ccc = new MyOracle__factory().attach(addr)
 
   const [rectangle, setRectangle] = React.useState<[number, number, string][]>([])
@@ -57,15 +58,6 @@ export const Home = observer(() => {
     } catch (e) {
       console.log(e)
     }
-
-    if (library) {
-      const yourContract:YourContract = new YourContract__factory().attach('0x9D71D7bEe4adb538c684A3a1406F4846e5F03724').connect(library.getSigner())
-      // const tx = await yourContract.setPurpose("Hello World");
-      // tx.wait()
-      console.log('purpose:', await yourContract.getPurpose())
-      // const await tx.wait()
-    }
-
   }
 
   useInterval(() => {
