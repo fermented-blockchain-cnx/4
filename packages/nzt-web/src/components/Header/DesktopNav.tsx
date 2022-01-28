@@ -70,14 +70,7 @@ export const DesktopNav = observer((props: BoxProps) => {
   )
 
   const Links = [
-    { name: 'หน้าหลัก' },
-    { name: 'PM2.5ตามพิกัด', url: 'pmlist' },
-    { name: 'ค่าฝุ่นรายชั่วโมง' },
-    { name: 'ค่าฝุ่นรายวัน' },
-    { name: 'ภาพถ่าย' },
-    { name: 'จุดความร้อน' },
-    { name: 'ข่าวและวีดีโอ' },
-    { name: 'แหล่งความรู้' },
+
   ]
 
   const accountView = useObserver(() => {
