@@ -122,7 +122,7 @@ export const DesktopNav = observer((props: BoxProps) => {
           <HamburgerIcon w={8} h={8} onClick={() => handleSizeClick()} />
         </Box>
         <Box>
-          <Image src={'icon/CCDC_logo.png'} w={'175px'} />
+          {/* <Image src={'icon/CCDC_logo.png'} w={'175px'} /> */}
         </Box>
       </Flex>
       <Divider />
