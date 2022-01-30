@@ -7,7 +7,7 @@ override contract = MyOracle
 endif
 
 
-.PHONY: setup test action deploy mue
+.PHONY: setup test action deploy mue typechain
 
 setup:
 	hh run scripts/00-setup.js  --network $(network)
@@ -31,6 +31,13 @@ abi:
 	cat deployments/${network}/${contract}.json | jq .abi | jq
 	@cat deployments/${network}/${contract}.json | jq .address
 	@cat deployments/${network}/${contract}.json | jq .transactionHash
+
+typechain:
+	-rm -Rv typechain
+	-rm -Rv ../nzt-web/src/generated/typechain
+	hh typechain
+	mkdir -p ../nzt-web/src/generated/typechain
+	cp -Rv typechain ../nzt-web/src/generated/
 
 action:
 	@echo "action! $(foo)"

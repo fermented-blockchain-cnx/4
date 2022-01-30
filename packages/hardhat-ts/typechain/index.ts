@@ -2,9 +2,11 @@
 /* tslint:disable */
 /* eslint-disable */
 export type { MyOracle } from "./MyOracle";
+export type { MySimpleContract } from "./MySimpleContract";
 export type { PawatNon } from "./PawatNon";
 export type { YourContract } from "./YourContract";
 
 export { MyOracle__factory } from "./factories/MyOracle__factory";
+export { MySimpleContract__factory } from "./factories/MySimpleContract__factory";
 export { PawatNon__factory } from "./factories/PawatNon__factory";
 export { YourContract__factory } from "./factories/YourContract__factory";
