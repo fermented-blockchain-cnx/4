@@ -243,8 +243,9 @@ task('account', 'Get balance informations for the deployment account.', async (_
   for (const n in config.networks) {
     // console.log(config.networks[n],n)
     try {
+      // const network = config.networks[n] as HttpNetworkUserConfig;
       const { url } = config.networks[n] as HttpNetworkUserConfig;
-      const provider = new ethers.providers.JsonRpcProvider('');
+      const provider = new ethers.providers.JsonRpcProvider(url);
       const balance = await provider.getBalance(address);
       console.log(` -- ${n} --  -- -- 📡 `);
       console.log(`   balance: ${ethers.utils.formatEther(balance)}`);
