@@ -6,7 +6,7 @@ import { Box, Button, Center, chakra, Flex, Link, Text, Tooltip, useColorModeVal
 import { from } from '@iotexproject/iotex-address-ts'
 import * as clipboard from 'clipboard-polyfill/text'
 import copy from 'copy-to-clipboard'
-import { observer, useLocalStore } from 'mobx-react-lite'
+import { observer, useLocalObservable } from 'mobx-react-lite'
 import React from 'react'
 import toast from 'react-hot-toast'
 import { eventBus } from '../../lib/event'
@@ -15,7 +15,7 @@ import { useStore } from '../../store/index'
 export const WalletInfo = observer(() => {
   const { god, lang } = useStore()
 
-  const store = useLocalStore(() => ({
+  const store = useLocalObservable(() => ({
     isTipOpen: false,
     isIOTipOpen: false,
     get visible() {

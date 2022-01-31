@@ -18,7 +18,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { useWeb3React } from '@web3-react/core'
-import { observer, useLocalStore } from 'mobx-react-lite'
+import { observer, useLocalObservable } from 'mobx-react-lite'
 import React, { useEffect } from 'react'
 import { BSCMainnetConfig } from '../../config/BSCMainnetConfig'
 import { BSCTestnetConfig } from '../../config/BSCTestnetConfig'
@@ -37,7 +37,7 @@ export const WalletSelecter = observer(() => {
   const { god, lang } = useStore()
   const { active, error, activate } = useWeb3React()
 
-  const store = useLocalStore(() => ({
+  const store = useLocalObservable(() => ({
     get visible() {
       return god.eth.connector.showConnector
     },

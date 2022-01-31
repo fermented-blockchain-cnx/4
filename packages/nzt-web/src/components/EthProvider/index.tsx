@@ -2,7 +2,7 @@ import { injected } from '@/lib/web3-react'
 import { Web3Provider } from '@ethersproject/providers'
 import { useWeb3React } from '@web3-react/core'
 import { Provider as MulticallProvider } from 'ethcall'
-import { observer, useLocalStore } from 'mobx-react-lite'
+import { observer, useLocalObservable } from 'mobx-react-lite'
 import React, { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import { ETHMainnetConfig } from '../../config/ETHMainnetConfig'
@@ -13,7 +13,7 @@ export const ETHProvider = observer(({ children }) => {
   const { god, lang } = useStore()
   const { chainId, account, activate, active, library, deactivate, error, connector } = useWeb3React<Web3Provider>()
 
-  const store = useLocalStore(() => ({
+  const store = useLocalObservable(() => ({
     get defaultChain() {
       return ETHMainnetConfig
     },
